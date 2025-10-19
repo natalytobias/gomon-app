@@ -42,42 +42,81 @@ const HeatmapChart: React.FC = () => {
     
     
     const heatmapOption: EChartsOption = {
-        title: { text: `Distribuição de Valores ${apiData.valueKey} por Variável e Nível`, left: 'center' },
+        title: { 
+            text: `Análise GOM - Associação aos Perfis Extremos`, 
+            left: 'center' 
+        },
         tooltip: {
             position: 'top',
             formatter: function(params: any) {
-                
-                const level = apiData.xAxisLabels[params.value[0]];
-                const variable = apiData.yAxisLabels[params.value[1]];
+                // CORREÇÃO AQUI: params.value[0] = índice x, params.value[1] = índice y
+                const perfil = apiData.xAxisLabels[params.value[0]]; // 'k1' ou 'k2'
+                const variavelNivel = apiData.yAxisLabels[params.value[1]]; // 'Var1 - l1'
                 const value = params.value[2];
-                return `Variável: ${variable} <br/>Nível: ${level} <br/>${apiData.valueKey}: ${value.toFixed(4)}`;
+                
+                return `
+                    <strong>${variavelNivel}</strong><br/>
+                    Perfil ${perfil}: <b>${value.toFixed(4)}</b><br/>
+                    ${apiData.valueKey}
+                `;
             }
         },
-        grid: { height: '60%', top: '15%', left: '15%', right: '5%', bottom: '5%' },
+        grid: { 
+            height: '70%', 
+            top: '15%', 
+            left: '20%', // Mais espaço para labels longos
+            right: '5%', 
+            bottom: '15%' // Espaço para visualMap
+        },
         xAxis: {
             type: 'category',
-            data: apiData.xAxisLabels, 
-            splitArea: { show: true }
+            data: apiData.xAxisLabels, // ['k1', 'k2']
+            splitArea: { show: true },
+            name: 'Perfis GOM'
         },
         yAxis: {
             type: 'category',
-            data: apiData.yAxisLabels, 
-            splitArea: { show: true }
+            data: apiData.yAxisLabels, // ['Var1 - l1', 'Var1 - l2', ...]
+            splitArea: { show: true },
+            axisLabel: {
+                fontSize: 11,
+                margin: 10
+            }
         },
         visualMap: {
             min: 0,
-            max: 1.0, 
+            max: 0.7, // Ajustado para o valor máximo dos seus dados
             calculable: true,
             orient: 'horizontal',
             left: 'center',
-            bottom: '1%'
+            bottom: '5%',
+            text: ['Alta Associação', 'Baixa Associação'],
+            inRange: {
+                color: ['#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#fee090', '#fdae61', '#f46d43', '#d73027']
+            }
         },
         series: [{
-            name: `Valor ${apiData.valueKey}`,
+            name: apiData.valueKey,
             type: 'heatmap',
-            data: apiData.data, 
-            label: { show: true, fontSize: 9, color: '#000' },
-            
+            data: apiData.data,
+            label: { 
+                show: true, 
+                fontSize: 10, 
+                color: '#000',
+                formatter: function(params: any) {
+                    return params.value[2] === 0 ? '0' : params.value[2].toFixed(3);
+                }
+            },
+            itemStyle: {
+                borderColor: '#fff',
+                borderWidth: 1
+            },
+            emphasis: {
+                itemStyle: {
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
         }]
     };
 
