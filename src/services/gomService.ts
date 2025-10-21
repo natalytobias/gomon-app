@@ -34,12 +34,21 @@ export class GomService {
 
       const conversao = await api.get("http://127.0.0.1:8000/conversao-txt");
 
-
-      console.log("Resposta do backend:", res.data);
-      console.log("resposta da conversao:", conversao);
-
     } catch (err: any) {
       console.error("Erro ao enviar:", err.response?.data || err.message);
+      throw err;
+    }
+
+    
+  }
+
+  static async  DadosHeatmap() {
+    try{
+      const heatmapData = await api.get("http://127.0.0.1:8000/dados-heatmap");
+      console.log(heatmapData);
+      return heatmapData;
+    } catch (err: any){
+      console.error("Erro ao carregar dados", err.response?.data || err.message);
       throw err;
     }
   }
