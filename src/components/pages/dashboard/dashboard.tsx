@@ -20,9 +20,7 @@ const Dashboard: React.FC = () => {
         </p>
       </header>
 
-      {/* ---------------------------------------------------- */}
-      {/* CARD 1: Gráfico de Calor (Heatmap) */}
-      {/* ---------------------------------------------------- */}
+      
       <section style={{ 
           marginBottom: '30px',
           backgroundColor: '#fff', 
@@ -34,14 +32,12 @@ const Dashboard: React.FC = () => {
           Análise de Densidade (Heatmap)
         </h2>
         
-        {/* Renderiza o componente que busca e exibe o gráfico */}
+    
         <HeatmapChart />
       
       </section>
 
-      {/* ---------------------------------------------------- */}
-      {/* CARD 2: Área para Futuros Gráficos (Exemplo) */}
-      {/* ---------------------------------------------------- */}
+      
       <section style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
@@ -56,7 +52,7 @@ const Dashboard: React.FC = () => {
         }}>
           <h2 style={{ color: '#333' }}>Gráfico de Barras (Futuro)</h2>
           <p style={{ color: '#666' }}>Implemente um componente BarChart.tsx aqui.</p>
-          {/* <BarChart data={...} /> */}
+          
         </div>
 
         <div style={{ 
@@ -67,7 +63,7 @@ const Dashboard: React.FC = () => {
         }}>
           <h2 style={{ color: '#333' }}>KPIs Principais (Futuro)</h2>
           <p style={{ color: '#666' }}>Pode ser usado para métricas de resumo, como média e desvio padrão.</p>
-          {/* <div>KPIs...</div> */}
+          
         </div>
       </section>
       

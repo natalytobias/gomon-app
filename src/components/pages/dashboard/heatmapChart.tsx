@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { EChartsOption } from 'echarts';
-import { GomService } from '../../services/gomService'; 
+import { GomService } from '../../../services/gomService'; 
 import ReactECharts from './reactECharts';
 
 // Tipagem da Resposta da API
@@ -20,7 +20,7 @@ const HeatmapChart: React.FC = () => {
         const loadData = async () => {
             try {
                 const response = await GomService.DadosHeatmap();
-                // A API agora retorna os dados PRONTOS no response.data
+                
                 setApiData(response.data as HeatmapApiResponse); 
                 setIsLoading(false);
             } catch (err) {
@@ -64,9 +64,9 @@ const HeatmapChart: React.FC = () => {
         grid: { 
             height: '70%', 
             top: '15%', 
-            left: '20%', // Mais espaço para labels longos
+            left: '20%', 
             right: '5%', 
-            bottom: '15%' // Espaço para visualMap
+            bottom: '15%' 
         },
         xAxis: {
             type: 'category',
@@ -85,7 +85,7 @@ const HeatmapChart: React.FC = () => {
         },
         visualMap: {
             min: 0,
-            max: 0.7, // Ajustado para o valor máximo dos seus dados
+            max: 0.7, 
             calculable: true,
             orient: 'horizontal',
             left: 'center',

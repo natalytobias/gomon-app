@@ -2,7 +2,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import GomForm from './components/pages/formulario';
-import Dashboard from './components/dashboard/dashboard';
+import Dashboard from './components/pages/dashboard/dashboard';
 import Home from './components/pages/home';
 
 const App: React.FC = () => {
