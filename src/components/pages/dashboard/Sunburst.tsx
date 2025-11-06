@@ -101,8 +101,6 @@ const SunburstChart: React.FC<SunburstChartProps> = ({ num_k }) => {
           "#66C18C", // K2
           "#F6C85F", // K3
           "#E08DAC", // K4
-          "#9B72CF", // K5 (se tiver)
-          "#FF7C43"  // K6 (se tiver)
         ],
       },
     ],

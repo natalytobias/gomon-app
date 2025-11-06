@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
             height: '500px'
         }}>
           <h2>Mapa Sunburst dos Perfis GOM</h2>
-            <SunburstChart num_k={4} />
+            <SunburstChart num_k={2} />
           
         </div>
 
