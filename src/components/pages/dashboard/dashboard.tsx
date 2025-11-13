@@ -26,7 +26,7 @@ const Dashboard: React.FC = () => {
       </header>
 
       
-      <section style={{ 
+      {/* <section style={{ 
           marginBottom: '30px',
           backgroundColor: '#fff', 
           padding: '20px', 
@@ -40,7 +40,7 @@ const Dashboard: React.FC = () => {
     
         <HeatmapChart />
       
-      </section> 
+      </section>  */}
 
       
       <section style={{ 

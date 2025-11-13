@@ -16,7 +16,7 @@ export default function Home(){
           border: '1px solid #ccc',
           borderRadius: 2,
           boxShadow: 3,
-          margin: '24px auto 24px auto', // 24px top e bottom
+          margin: '24px auto 24px auto', 
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           gap: 3,

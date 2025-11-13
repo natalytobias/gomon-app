@@ -40,10 +40,10 @@ const Menu: React.FC = () => {
                 <Button 
                   color="inherit" 
                   component={Link} 
-                  to="/ListaCarros"
+                  to="/documentacao"
                   sx={{ fontFamily: "inherit" }}
                 >
-                  Guia de padronização
+                  Documentação 
                 </Button>
         </Box>
       </Toolbar>
