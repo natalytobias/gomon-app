@@ -9,7 +9,7 @@ interface parametrosGom {
 }
 
 export class GomService {
-  static async enviandoParaConfigurar(dados: parametrosGom): Promise<void> {
+  static async enviandoParaConfigurar(dados: parametrosGom): Promise<any> {
     try {
       const formData = new FormData();
       formData.append("file", dados.file);
@@ -21,35 +21,34 @@ export class GomService {
         dados.internal_vars.forEach(v => formData.append("internal_vars", v));
       }
 
-      // debug: mostra o que está indo
-      for (const [key, value] of formData.entries()) {
-        console.log("Enviando:", key, value);
-      }
-
-      const res = await api.post("http://127.0.0.1:8000/upload-data/", formData, {
+      api.post("http://127.0.0.1:8000/upload-data/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      const conversao = await api.get("http://127.0.0.1:8000/conversao-txt");
-
+      
     } catch (err: any) {
       console.error("Erro ao enviar:", err.response?.data || err.message);
       throw err;
     }
-
-    
   }
 
-  static async  DadosHeatmap() {
-    try{
-      const heatmapData = await api.get("http://127.0.0.1:8000/dados-heatmap");
-      console.log(heatmapData);
-      return heatmapData;
-    } catch (err: any){
-      console.error("Erro ao carregar dados", err.response?.data || err.message);
+  static async convertendoTxt(k_final: number, internal_vars: string[]): Promise<any>{
+    try {
+      const conversao = await api.get("http://127.0.0.1:8000/conversao-txt", {
+        params: {
+          num_k: k_final,
+          internal_vars_string: internal_vars.join(',')
+        }
+      });
+
+      return conversao.data;
+      
+    } catch (err: any) {
+      console.error("Erro ao enviar:", err.response?.data || err.message);
       throw err;
     }
   }
+
+  
 }
