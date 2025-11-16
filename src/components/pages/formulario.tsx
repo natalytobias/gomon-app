@@ -80,9 +80,9 @@ export default function GomForm() {
       
 
       // Converte o arquivo
-      //await GomService.convertendoTxt(kFinal, filteredVars);
+      await GomService.convertendoTxt(kFinal, filteredVars);
 
-      alert("Dados enviados com sucesso!");
+      //alert("Dados enviados com sucesso!");
       setShowDashboard(true);
     } catch (err) {
       console.error("Erro detalhado ao enviar:", err);
@@ -211,7 +211,7 @@ export default function GomForm() {
         </Box>
         
         {/* Dashboard */}
-        {showDashboard && <Dashboard />}
+        {showDashboard && <Dashboard perfil_k={kFinal} />}
       </div>
     </>
   );

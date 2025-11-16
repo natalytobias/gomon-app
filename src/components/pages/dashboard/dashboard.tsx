@@ -3,9 +3,11 @@ import HeatmapChart from "./heatmapChart";
 import SunburstChart from "./Sunburst";
 import Menu from "../menu";
 
+interface DashboardProps {
+  perfil_k: number;
+}
 
-
-export const Dashboard: React.FC = () => {
+export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
   return (
     <>
       <div
@@ -50,7 +52,7 @@ export const Dashboard: React.FC = () => {
             }}
           >
             <h2>Mapa Sunburst dos Perfis GOM</h2>
-            <SunburstChart num_k={2} />
+            <SunburstChart num_k={perfil_k} />
           </div>
 
           <div
