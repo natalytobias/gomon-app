@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import Menu from "./menu";
-import Separator from "../separator";
+import Menu from "../menu";
+import Separator from "../../separator";
+import variaveis_exemplo1 from "../../imgs/variaveis_exemplo1.jpg";
+import variaveis_exemplo2 from "../../imgs/variaveis_exemplo2.jpg";
 
 export default function Documentacao() {
   return (
@@ -37,6 +39,10 @@ export default function Documentacao() {
             haja uma coluna com valores <strong>únicos</strong> de
             identificação, chamada obrigatoriamente de <strong>SubjID</strong>.
           </div>
+          <div className="flex flex-1 flex-col md:flex-row gap-4">
+            <img src={variaveis_exemplo1} alt="estatísticas" className="rounded-2xl md:w-1/2" />
+            <img src={variaveis_exemplo2} alt="estatísticas" className="rounded-2xl md:w-1/2" />
+          </div>
           <div className="text-start font-medium text-[24px] pb-2">
             Valores Numéricos
           </div>
@@ -51,10 +57,11 @@ export default function Documentacao() {
             que o GoM não requer que os *missings* sejam excluídos das
             variáveis. Contudo, pode ser criada uma categoria de não resposta em
             determinados casos. A única variável que não precisa estar em ordem
-            sequencial é a de identificação “SubjID”. o GoM **não** aceita
-            variáveis incluídas no banco de dados que: - sejam contínuas; -
-            tenham categorias não ordenadas em sequência; - sejam textuais.
+            sequencial é a de identificação “SubjID”.  
           </div>
+
+         
+          
         </Box>
 
         <div className="h-[0.5px] bg-gray-400 w-full my-10" />

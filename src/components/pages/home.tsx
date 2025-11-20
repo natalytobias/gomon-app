@@ -50,34 +50,53 @@ export default function Home() {
 
         <Separator />
 
+         <div className="flex flex-row justify-between w-full gap-8 ">
+          <div className="  flex-1">
+            <img src={estatiticas} alt="estatísticas" className="rounded-2xl" />
+          </div>
+          <div className=" flex-1">
+            
+            <div className=" text-justify">
+              Diferente de métodos tradicionais que forçam categorizações rígidas, o GoM reconhece que na saúde, ciências sociais e comportamento humano, as pessoas frequentemente exibem características de vários perfis ao mesmo tempo. Esta flexibilidade captura melhor a heterogeneidade natural dos dados, fornece medidas de incerteza mais informativas e identifica perfis latentes que emergem organicamente da estrutura dos dados, resultando em análises mais precisas e intervenções mais direcionadas.
+              
+            </div>
+          </div>
+          
+        </div>
+
+        <Separator />
+
         <div className="flex flex-row justify-between w-full gap-8 ">
           <div className="  flex-1">
             <div className="text-start font-medium text-[24px] pb-2">
-              Benefícios do GOMON
+              Em quais areas é recomendado utilizar?
             </div>
             {/* cards */}
             <div className=" text-justify pb-4">
-              Diferente de métodos tradicionais que forçam categorizações rígidas, o GoM reconhece que na saúde, ciências sociais e comportamento humano, as pessoas frequentemente exibem características de vários perfis ao mesmo tempo. Esta flexibilidade captura melhor a heterogeneidade natural dos dados, fornece medidas de incerteza mais informativas e identifica perfis latentes que emergem organicamente da estrutura dos dados, resultando em análises mais precisas e intervenções mais direcionadas.
+              O GoM é ideal quando a realidade que você estuda não cabe em categorias fixas e mutuamente exclusivas. 
+              Diferente de métodos tradicionais que forçam pessoas ou entidades em uma única classificação, o GoM reconhece que na vida real, temos características múltiplas e sobrepostas. 
             </div>
             <div className="grid grid-cols-2 gap-5">
               <Card
-                title="Perfis Latentes"
-                subtitle="Descobre padrões não óbvios nos dados. Não depende de categorizações pré-definidas pelo pesquisador. Perfis emergem organicamente da estrutura dos dados"
+                title="Saúde e Epidemiologia"
+                subtitle="Ideal para análise de pacientes com múltiplas condições simultâneas, 
+                permitindo diagnósticos mais precisos e tratamentos personalizados que consideram 
+                a complexidade humana."
               />
               <Card
-                title="Complexidade Humana"
-                subtitle="Card 02 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              elementum aliquam orci, ac interdum lectus consequat sed."
+                title="Ciências Sociais"
+                subtitle="Perfeito para estudar trajetórias de vida complexas e segmentação populacional,
+                 capturando sobreposições em comportamentos, classes sociais e estilos de vida."
               />
               <Card
-                title="Card 03"
-                subtitle="Card 02 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              elementum aliquam orci, ac interdum lectus consequat sed."
+                title="Marketing e Segmentação"
+                subtitle="Excelente para identificar perfis híbridos de consumidores, reconhecendo 
+                que pessoas podem ter múltiplos comportamentos de consumo e preferências sobrepostas."
               />
               <Card
-                title="Card 03"
-                subtitle=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-              elementum aliquam orci, ac interdum lectus consequat sed."
+                title="Políticas Públicas:"
+                subtitle="Crucial para direcionar programas sociais a populações vulneráveis com 
+                necessidades multidimensionais, evitando categorizações simplistas"
               />
             </div>
           </div>

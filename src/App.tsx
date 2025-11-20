@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GomForm from "./components/pages/formulario";
 import Dashboard from "./components/pages/dashboard/dashboard";
 import Home from "./components/pages/home";
-import Documentacao from "./components/pages/documentacao";
+import Documentacao from "./components/pages/documentacao/documentacao";
 import Sobre from "./components/pages/sobre";
 
 const App: React.FC = () => {
