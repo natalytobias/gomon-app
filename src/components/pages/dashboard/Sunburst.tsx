@@ -49,9 +49,9 @@ const SunburstChart: React.FC<SunburstChartProps> = ({ num_k }) => {
 
   const option = {
     title: {
-      text: `Distribuição dos Perfis (K = ${num_k})`,
+      text: `Características mais importantes de cada variável por perfil`,
       left: "center",
-      top: 5,
+      top: 1,
       textStyle: { fontSize: 14 }
     },
     tooltip: {

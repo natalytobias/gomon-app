@@ -47,12 +47,9 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
             boxSizing: "border-box",
           }}
         >
-          <h2 style={{ color: "#333", marginBottom: "10px" }}>
+          {/* <h2 style={{ color: "#333", marginBottom: "10px" }}>
             Tabela LMFR
-          </h2>
-          <p style={{ color: "#666", marginBottom: "20px" }}>
-            A tabela mostra o LMFR
-          </p>
+          </h2> */}
           <TabelaResultados />
         </div>
       </section>
@@ -69,12 +66,14 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
             boxSizing: "border-box",
           }}
         >
-          <h2 style={{ color: "#333", marginBottom: "20px" }}>
-            Mapa Sunburst dos Perfis GOM
-          </h2>
-          <p style={{ color: "#666", marginBottom: "20px" }}>
-            Distribuição dos Perfis (K = {perfil_k})
-          </p>
+          <h1 style={{ 
+            color: "#181966ff", 
+            marginBottom: "20px",
+            fontSize: "28px", 
+            fontWeight: "bold"
+          }}>
+            Gráfico Sunburst
+          </h1>
           <div style={{ height: "500px", width: "100%" }}>
             <SunburstChart num_k={perfil_k} />
           </div>
@@ -93,12 +92,15 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
             boxSizing: "border-box",
           }}
         >
-          <h2 style={{ color: "#333", marginBottom: "20px" }}>
-            Gráfico Matrix Scatter dos Perfis GOM
-          </h2>
-          <p style={{ color: "#666", marginBottom: "20px" }}>
-            Matriz de correlação (K = {perfil_k})
-          </p>
+          <h1 style={{ 
+            color: "#181966ff", 
+            marginBottom: "20px",
+            fontSize: "28px",     
+            fontWeight: "bold"
+          }}>
+            Gráfico Matrix Scatter
+          </h1>
+          
           <div style={{ height: "700px", width: "100%" }}>
             <MatrixScatterChart num_k={perfil_k} />
           </div>
