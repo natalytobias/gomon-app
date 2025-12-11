@@ -64,33 +64,8 @@ export default function Documentacao() {
           
         </Box>
 
-        <div className="h-[0.5px] bg-gray-400 w-full my-10" />
+        {/* <div className="h-[0.5px] bg-gray-400 w-full my-10" /> */}
 
-        <Box sx={{ flex: 1, textAlign: "justify" }}>
-          {" "}
-          {/* ← Justificação aplicada aqui */}
-          <div className="text-start font-medium text-4xl pb-2">
-            Campos do Formulário
-          </div>
-          <div className="text-start font-medium text-[24px] pb-2">
-            Número de Perfis
-          </div>
-          <div className="pb-4">
-            O número de K escolhido é o que ira definir quantos perfis “puros”
-            serão gerados. Quanto maior o valor de K, maior detalhamento terá O
-            valor mais comum utilizado são dois perfis puros (K2). É recomendado
-            a escolha de três perfis puros (K3) quando se tem uma quantidade
-            maior de amostras. A utilização de quatro perfis puros (K4) é
-            possível porém pouco recomenda uma vez que pode dificultar
-          </div>
-          <div className="text-start font-medium text-[24px] pb-2">
-            Variáveis Internas
-          </div>
-          <div className="pb-4">
-            Deve ser informado nome de cada coluna por campo. Não é necessário
-            informar a coluna de identificação.
-          </div>
-        </Box>
 
         <Separator />
 

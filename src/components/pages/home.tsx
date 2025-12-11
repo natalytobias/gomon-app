@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Separator from "../separator";
 import estatiticas from "../imgs/estatisticas.jpg";
+import estatiticas_dois from "../imgs/estatisticas_dois.jpg";
 import { Card } from "../card";
 
 export default function Home() {
@@ -52,7 +53,7 @@ export default function Home() {
 
          <div className="flex flex-row justify-between w-full gap-8 ">
           <div className="  flex-1">
-            <img src={estatiticas} alt="estatísticas" className="rounded-2xl" />
+            <img src={estatiticas_dois} alt="estatísticas_dois" className="rounded-2xl" />
           </div>
           <div className=" flex-1">
             
