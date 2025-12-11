@@ -48,10 +48,10 @@ const MatrixScatterChart: React.FC<MatrixScatterProps> = ({ num_k }) => {
   // Configuração do gráfico
   const option = {
     title: {
-      text: `Distribuição das caracteristas do perfil ${num_k} `,
+      text: `Distribuição das características do perfil ${num_k} `,
       left: "center",
       top: 1,
-      textStyle: { fontSize: 14 }
+      textStyle: { fontSize: 16 }
     },
     tooltip: {
       position: 'top',

@@ -47,9 +47,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
             boxSizing: "border-box",
           }}
         >
-          {/* <h2 style={{ color: "#333", marginBottom: "10px" }}>
-            Tabela LMFR
-          </h2> */}
           <TabelaResultados />
         </div>
       </section>
@@ -80,7 +77,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
         </div>
       </section>
 
-      {/* Matrix Scatter Chart */}
+      {/* Matrix Scatter Charts */}
       <section style={{ marginBottom: "40px", width: "100%" }}>
         <div
           style={{
@@ -94,15 +91,55 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
         >
           <h1 style={{ 
             color: "#181966ff", 
-            marginBottom: "20px",
-            fontSize: "28px",     
+            marginBottom: "30px",
+            fontSize: "28px",
             fontWeight: "bold"
           }}>
-            Gráfico Matrix Scatter
+            Gráficos Matrix Scatter
           </h1>
           
-          <div style={{ height: "700px", width: "100%" }}>
-            <MatrixScatterChart num_k={perfil_k} />
+          {/* Renderiza gráficos verticalmente */}
+          <div style={{ 
+            display: "flex",
+            flexDirection: "column",
+            gap: "40px",
+            width: "100%"
+          }}>
+            {Array.from({ length: perfil_k }, (_, index) => {
+              const currentK = index + 1;
+              return (
+                <div 
+                  key={currentK}
+                  style={{ 
+                    backgroundColor: "#fafafa",
+                    padding: "30px",
+                    borderRadius: "8px",
+                    border: "1px solid #e0e0e0"
+                  }}
+                >
+                  {/* <h2 style={{ 
+                    color: "#333", 
+                    marginBottom: "20px",
+                    fontSize: "20px",
+                    fontWeight: "600",
+                    textAlign: "center"
+                  }}>
+                    Matriz K = {currentK}
+                  </h2> */}
+                  {/* <p style={{
+                    color: "#666",
+                    fontSize: "14px",
+                    textAlign: "center",
+                    marginBottom: "20px"
+                  }}>
+                    Distribuição das características do perfil {currentK}
+                  </p> */}
+                  <div style={{ height: "700px", width: "100%" }}>
+                    <MatrixScatterChart num_k={currentK} />
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
