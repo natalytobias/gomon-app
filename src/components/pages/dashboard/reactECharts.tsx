@@ -1,40 +1,39 @@
-import React, { useRef, useEffect } from 'react';
-import * as echarts from 'echarts/core';
-import type { EChartsOption, SetOptionOpts } from 'echarts'; 
-import type { CSSProperties } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 
-import { CanvasRenderer } from 'echarts/renderers';
+import * as echarts from "echarts/core";
+import type { EChartsOption, SetOptionOpts } from "echarts";
+import type { CSSProperties } from "react";
 
-import { 
-  HeatmapChart, 
-  SunburstChart,
-  ScatterChart  
-} from 'echarts/charts';
+import { CanvasRenderer } from "echarts/renderers";
+import { HeatmapChart, SunburstChart, ScatterChart } from "echarts/charts";
 
+import { LabelLayout, UniversalTransition } from "echarts/features";
 
-import { LabelLayout, UniversalTransition } from 'echarts/features';
-
-import { 
-  GridComponent, 
-  VisualMapComponent, 
+import {
+  GridComponent,
+  VisualMapComponent,
   TooltipComponent,
   TitleComponent,
-  LegendComponent
-} from 'echarts/components';
-
+  LegendComponent,
+} from "echarts/components";
 
 echarts.use([
   CanvasRenderer,
   HeatmapChart,
   SunburstChart,
-  ScatterChart,      
+  ScatterChart,
   GridComponent,
   VisualMapComponent,
   TooltipComponent,
   TitleComponent,
   LegendComponent,
   LabelLayout,
-  UniversalTransition
+  UniversalTransition,
 ]);
 
 interface ReactEChartsProps {
@@ -43,35 +42,42 @@ interface ReactEChartsProps {
   settings?: SetOptionOpts;
 }
 
-const ReactECharts: React.FC<ReactEChartsProps> = ({ option, style, settings }) => {
-  const chartRef = useRef<HTMLDivElement>(null);
+const ReactECharts = forwardRef(
+  ({ option, style, settings }: ReactEChartsProps, ref) => {
+    const chartRef = useRef<HTMLDivElement>(null);
+    const chartInstanceRef = useRef<any>(null);
 
-  useEffect(() => {
-    const chartInstance = echarts.init(chartRef.current!);
+    useEffect(() => {
+      chartInstanceRef.current = echarts.init(chartRef.current!);
 
-    const handleResize = () => {
-      chartInstance.resize();
-    };
+      const handleResize = () => {
+        chartInstanceRef.current?.resize();
+      };
 
-    window.addEventListener('resize', handleResize);
+      window.addEventListener("resize", handleResize);
 
-    return () => {
-      chartInstance.dispose();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+      return () => {
+        chartInstanceRef.current?.dispose();
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
 
-  useEffect(() => {
-    const chartInstance = echarts.getInstanceByDom(chartRef.current!);
-    chartInstance?.setOption(option, settings);
-  }, [option, settings]);
+    useEffect(() => {
+      chartInstanceRef.current?.setOption(option, settings);
+    }, [option, settings]);
 
-  return (
-    <div
-      ref={chartRef}
-      style={{ width: '100%', height: '300px', ...style }}
-    />
-  );
-};
+    // 🔥 EXPOREMOS O MÉTODO getInstance() PARA FAZER DOWNLOAD DE IMAGEM
+    useImperativeHandle(ref, () => ({
+      getInstance: () => chartInstanceRef.current,
+    }));
+
+    return (
+      <div
+        ref={chartRef}
+        style={{ width: "100%", height: "300px", ...style }}
+      />
+    );
+  }
+);
 
 export default ReactECharts;
