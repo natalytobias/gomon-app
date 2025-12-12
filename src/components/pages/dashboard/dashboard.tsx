@@ -117,23 +117,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ perfil_k }) => {
                     border: "1px solid #e0e0e0"
                   }}
                 >
-                  {/* <h2 style={{ 
-                    color: "#333", 
-                    marginBottom: "20px",
-                    fontSize: "20px",
-                    fontWeight: "600",
-                    textAlign: "center"
-                  }}>
-                    Matriz K = {currentK}
-                  </h2> */}
-                  {/* <p style={{
-                    color: "#666",
-                    fontSize: "14px",
-                    textAlign: "center",
-                    marginBottom: "20px"
-                  }}>
-                    Distribuição das características do perfil {currentK}
-                  </p> */}
                   <div style={{ height: "700px", width: "100%" }}>
                     <MatrixScatterChart num_k={currentK} />
                   </div>
